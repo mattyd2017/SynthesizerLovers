@@ -1,0 +1,25 @@
+using System.Linq;
+using AutoMapper;
+using SynthesizerLovers.API.Dtos;
+using SynthesizerLovers.API.Models;
+
+namespace SynthesizerLovers.API.Helpers
+{
+    public class AutoMapperProfiles : Profile
+    {
+       public AutoMapperProfiles()
+       {
+           CreateMap<User, UserForLIstDto>().ForMember(dest => dest.PhotoUrl, opt => {
+               opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url);
+           }).ForMember(dest => dest.Age, opt => {
+               opt.ResolveUsing(d => d.DateOfBirth.CalculateAge());
+           });
+           CreateMap<User, UserForDetailedDto>().ForMember(dest => dest.PhotoUrl, opt => {
+               opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url);
+           }).ForMember(dest => dest.Age, opt => {
+               opt.ResolveUsing(d => d.DateOfBirth.CalculateAge());
+           });
+           CreateMap<Photo, PhotosForDetailedDto>();
+       } 
+    }
+}
