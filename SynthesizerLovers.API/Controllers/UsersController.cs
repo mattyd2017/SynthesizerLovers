@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SynthesizerLovers.API.Data;
 using SynthesizerLovers.API.Dtos;
+using SynthesizerLovers.API.Helpers;
 
 namespace SynthesizerLovers.API.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
