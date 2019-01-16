@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="card">
-          <img class="card-img-top img-thumbnail" src="{{photoUrl}}" alt="{{user.knownAs}}">
+          <img class="card-img-top img-thumbnail" src="{{photoUrl || '../../../../../assets/user.png'}}" alt="{{user.knownAs}}">
           <div class="card-body">
             <div>
               <strong>Location:</strong>
@@ -44,11 +44,11 @@
             <tab heading="Edit Your Profile">
               <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
                   <h4>Synthesizers I Own</h4>
-                  <textarea name="introduction" rows="6" class="form-control" [(ngModel)]="user.introduction"></textarea>
+                  <textarea name="introduction" rows="6" class="form-control" [(ngModel)]="user.introduction" placeholder="Tell people about your synthesizers" ></textarea>
                   <h4>Synthesizers I'd Like To own and why</h4>
-                  <textarea name="lookingFor" rows="6" class="form-control" [(ngModel)]="user.lookingFor"></textarea>
+                  <textarea name="lookingFor" rows="6" class="form-control" [(ngModel)]="user.lookingFor" placeholder="Tell people about the synthesizers you have yet to buy"></textarea>
                   <h4>Music I Like</h4>
-                  <textarea name="interests" rows="6" class="form-control" [(ngModel)]="user.interests"></textarea>
+                  <textarea name="interests" rows="6" class="form-control" [(ngModel)]="user.interests"placeholder="What music do you like tell people about it" ></textarea>
                   <h4>Location Details</h4>
                   <div class="form-inline">
                     <label for="city">City</label>
