@@ -2,7 +2,7 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { AlertifyService } from './_services/alertify.service';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AuthService } from './_services/auth.service';
-import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
@@ -53,7 +53,9 @@ export function tokenGetter() {
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      PaginationModule.forRoot(),
       ReactiveFormsModule,
+      ButtonsModule.forRoot(),
       TabsModule.forRoot(),
       BsDatepickerModule.forRoot(),
       BsDropdownModule.forRoot(),
